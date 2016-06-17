@@ -10,4 +10,11 @@ class InstrumentsController < ApplicationController
     end
   end
 
+  get '/new' do
+    if !logged_in?
+      redirect to '/login'
+    else
+      erb :'/instruments/new'
+    end
+  end
 end
