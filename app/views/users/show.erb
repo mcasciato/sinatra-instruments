@@ -1,0 +1,8 @@
+<%= @user.inspect %>
+
+
+<h1>Welcome, <%= @user.username %></h1>
+
+<% @user.instruments.each do |instrument|%>
+  <li><%= instrument.name %></li>
+<% end %>
