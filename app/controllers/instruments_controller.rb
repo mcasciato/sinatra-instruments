@@ -27,4 +27,13 @@ class InstrumentsController < ApplicationController
         redirect to '/new'
       end
   end
+
+  get '/instruments/:id' do
+    @instrument = Instrument.find_by_id(params[:id])
+    if logged_in?
+      erb :'/instruments/show'
+    else
+      redirect to '/login'
+    end
+  end
 end
