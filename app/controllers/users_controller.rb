@@ -8,6 +8,22 @@ class UsersController < ApplicationController
     end
   end
 
+  post '/signup' do
+    if params[:password] == ""
+      redirect '/signup'
+    flash[:message] = "You must create a password."
+    end
+    user = User.new(params)
+    if user.username != "" && user.email != ""
+      user.save
+      session[:user_id] = user.id
+      redirect to "/instruments"
+    else
+      redirect to '/signup'
+    end
+  end
+
+
   get '/login' do
   if logged_in?
     redirect to '/instruments'
