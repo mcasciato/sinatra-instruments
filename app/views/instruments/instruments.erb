@@ -4,6 +4,9 @@
   <h2>Your Instruments:</h2>
 
   <h3>Click on an instrument to edit its information.</h3>
+  <% @instruments.each do |instrument| %>
+  <a href="instruments/<%=instrument.id%>/edit"><%=instrument.name %></a><br>
+  <%end%>
 
   <h4>Need to add an instrument to your collection? Click <a href="/new">here</a>.</h4>
 </div>
