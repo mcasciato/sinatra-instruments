@@ -1,0 +1,4 @@
+class InstrumentsController < ApplicationController
+
+
+end
