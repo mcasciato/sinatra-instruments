@@ -2,14 +2,11 @@
   <h1><%= @instrument.name %> </h1>
   <h3><small><%= @instrument.description %><small></h3>
 
-  <h2><small><a href="/instruments/<%= @instrument.id %>/edit" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-log-out"></span> Edit </a></small></h2>
+  <h2><small><a href="/instruments/<%= @instrument.id %>/edit">Edit this instrument</a></small></h2>
 
   <form method="POST" action="/instruments/<%= @instrument.id %>/delete">
     <input id="hidden" type="hidden" name="_method" value="DELETE">
-    <br>
-    <a href="/instruments/<%= @instrument.id %>/delete" class="btn btn-danger">
-        <span class="glyphicon glyphicon-remove"></span> Delete
-      </a>
+    <input type="submit" value="Delete Instrument">
   </form>
 
 

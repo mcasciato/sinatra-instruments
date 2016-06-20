@@ -1,3 +1,4 @@
+
 class InstrumentsController < ApplicationController
 
   get '/instruments' do
@@ -11,16 +12,9 @@ class InstrumentsController < ApplicationController
   end
 
   post '/instruments' do
-    # @user = current_user
-    # @instrument = Instrument.create(name: params[:name], description: params[:description], user_id: session[:user_id])
-    #   if @instrument.save
-    #     redirect to "/instruments/#{@instrument.id}"
-    #   else
-    #     redirect to '/new'
-    #   end
-    #
       if params[:name] != ""
-        tweet = Instrument.create(name: params[:name], description: params[:description], user_id: session[:user_id])
+        instrument = Instrument.create(name: params[:name], description: params[:description], user_id: session[:user_id])
+        instrument.save
         redirect '/instruments'
       else
         redirect '/instruments/new'
