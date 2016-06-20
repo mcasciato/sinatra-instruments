@@ -1,7 +1,9 @@
-<%= @user.inspect %>
+<div class="container">
 
-<h1>Welcome, <%= @user.username %></h1>
+<h1>Welcome, <%= @user.username.capitalize %></h1>
 
 <% @user.instruments.each do |instrument|%>
   <li><%= instrument.name %></li>
 <% end %>
+
+</div>
