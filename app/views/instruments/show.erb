@@ -2,7 +2,11 @@
   <h1><%= @instrument.name %> </h1>
   <h3><small><%= @instrument.description %><small></h3>
 
-  <h2><small><a href="/instruments/<%= @instrument.id %>/edit">Edit this instrument</a></small></h2>
+    <br><br>
+
+  <a href="/instruments/<%= @instrument.id %>/edit" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-edit"></span> Edit </a>
+
+  <br><br>
 
   <form method="POST" action="/instruments/<%= @instrument.id %>/delete">
     <input id="hidden" type="hidden" name="_method" value="DELETE">
