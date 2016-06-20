@@ -53,5 +53,17 @@ class InstrumentsController < ApplicationController
     end
   end
 
+  patch '/instruments/:id' do
+    instrument = Instrument.find(params[:id])
+    if params[:description] && params[:name]!= ""
+      instrument.description = params[:content]
+      instrument.name = params[:name]
+      instrument.save
+      redirect '/instruments'
+    else
+      redirect "/instruments/#{instrument.id}/edit"
+    end
+  end
+
 
 end
