@@ -10,22 +10,29 @@ class InstrumentsController < ApplicationController
     end
   end
 
+  post '/instruments' do
+    # @user = current_user
+    # @instrument = Instrument.create(name: params[:name], description: params[:description], user_id: session[:user_id])
+    #   if @instrument.save
+    #     redirect to "/instruments/#{@instrument.id}"
+    #   else
+    #     redirect to '/new'
+    #   end
+    #
+      if params[:name] != ""
+        tweet = Instrument.create(name: params[:name], description: params[:description], user_id: session[:user_id])
+        redirect '/instruments'
+      else
+        redirect '/instruments/new'
+      end
+  end
+
   get '/new' do
     if !logged_in?
       redirect to '/login'
     else
       erb :'/instruments/new'
     end
-  end
-
-  post '/instruments' do
-    @user = current_user
-    @instrument = Instrument.create(name: params[:name], description: params[:description], user_id: session[:user_id])
-      if @instrument.save
-        redirect to "/instruments/#{@instrument.id}"
-      else
-        redirect to '/new'
-      end
   end
 
   get '/instruments/:id' do
