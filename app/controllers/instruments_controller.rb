@@ -1,12 +1,12 @@
 class InstrumentsController < ApplicationController
 
   get '/instruments' do
-    if !logged_in?
-      redirect to '/login'
+    @instruments = Instrument.all
+    if logged_in?
+      erb :'/instruments/instruments'
       # flash[:message] = "You must be logged in to view instruments."
     else
-      @instruments = Instrument.all
-      erb :'/instruments/instruments'
+      redirect to "/login"
     end
   end
 

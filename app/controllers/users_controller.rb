@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
 
   get '/signup' do
-    if !logged_in?
-      erb :'/users/signup'
+    if logged_in?
+      redirect to '/instruments'
     else
-      erb :'instruments/instruments'
+      erb :'/users/signup'
     end
   end
 
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   post '/signup' do
     if params[:password] == ""
       redirect '/signup'
-    flash[:message] = "You must create a password."
+    # flash[:message] = "You must create a password."
     end
     user = User.new(params)
     if user.username != "" && user.email != ""
@@ -37,9 +37,9 @@ class UsersController < ApplicationController
   end
 
   post '/login' do
-    @user = User.find_by(:username => params[:username])
-    if @user && @user.authenticate(params[:password])
-      session[:user_id] = @user.id
+    user = User.find_by(:username => params[:username])
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
       redirect "/instruments"
     else
       erb :'/users/login'
