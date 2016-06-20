@@ -65,5 +65,12 @@ class InstrumentsController < ApplicationController
     end
   end
 
+  delete 'instruments/:id/delete' do
+    instrument = Instrument.find(params[:id])
+    if current_user.instruments.include?(instrument)
+      instrument.delete
+    end
+    redirect to "/instruments"
+  end
 
 end
