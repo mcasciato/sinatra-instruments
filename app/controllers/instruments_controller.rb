@@ -2,8 +2,8 @@
 class InstrumentsController < ApplicationController
 
   get '/instruments' do
-    @instruments = current_user.instruments.all
     if logged_in?
+      @instruments = current_user.instruments.all
       erb :'/instruments/instruments'
       # flash[:message] = "You must be logged in to view instruments."
     else
