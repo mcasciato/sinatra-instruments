@@ -1,6 +1,10 @@
 <div class="container">
   <h1>Welcome <%= current_user.username %>!</h1>
 
+  <% if flash[:message] != nil %>
+    <h2><small> <%= flash[:message] %> </small></h2>
+  <%end%>
+
   <h2>Your Instruments:</h2>
 
   <h2><small>Click on an instrument to edit its information.<small></h2>
