@@ -1,4 +1,8 @@
 <div class="container">
+  <% if flash[:message] != nil %>
+    <h2><small> <%= flash[:message] %> </small></h2>
+  <%end%>
+
   <h2>Log in below:</h2><br>
   <form role="textbox" action="/login" method="POST">
     <div class="prompt">
