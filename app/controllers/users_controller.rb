@@ -15,13 +15,14 @@ class UsersController < ApplicationController
 
   post '/signup' do
     if params[:password] == ""
+      flash[:message] = "**You must create a password.**"
       redirect '/signup'
-    # flash[:message] = "You must create a password."
     end
     user = User.new(params)
     if user.username != "" && user.email != ""
       user.save
       session[:user_id] = user.id
+      flash[:message] = "You successfully created a user!"
       redirect to "/instruments"
     else
       redirect to '/signup'
@@ -49,6 +50,7 @@ class UsersController < ApplicationController
   get '/logout' do
     if logged_in?
       session.clear
+      flash[:message] = "You successfully logged out."
       redirect '/login'
     else
       redirect '/'

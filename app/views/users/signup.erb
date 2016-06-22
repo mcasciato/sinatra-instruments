@@ -1,4 +1,9 @@
 <div class="container">
+  
+  <% if flash[:message] != nil %>
+  <h2><small> <%= flash[:message] %> </small></h2>
+  <%end%>
+
   <h2>Sign up below:</h2><br>
 
   <div class="signup-wrapper">
