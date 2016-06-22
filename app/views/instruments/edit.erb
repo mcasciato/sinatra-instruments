@@ -1,25 +1,24 @@
 <div class="container">
   <h1>Edit "<%= @instrument.name %>"</h1>
 
-  <form class="form-horizontal" action="/instruments/<%= @instrument.id %>" method="post" role="form">
+  <form role="textbox" action="/instruments/<%= @instrument.id %>" method="post">
     <input id="hidden" type="hidden" name="_method" value="patch">
 
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="name">Instrument Name:</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" name="name" id="name" placeholder="Edit instrument name">
-      </div>
+    <div class="prompt">
+       <input type="text" name="name" id="name" class="form-control input-lg" placeholder="Instrument Name">
     </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="description">Instrument Description:</label>
-      <div class="col-sm-10">
-        <textarea class="form-control" rows="5" name="description" id="description" placeholder="Edit instrument description"></textarea>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-    <button type="submit" class="btn btn-default">Submit</button>
-      </div>
+     <br>
+     <div class="prompt">
+        <textarea name="description" id="description" class="form-control input-lg" placeholder="Instrument Description"></textarea>
+     </div>
+     <br>
+    <div class="prompt">
+      <button type="submit" class="btn btn-primary">Edit Instrument</button>
+      <br>
     </div>
   </form>
+
+  <h3>Change your mind? Go back to your list of instruments.</h3>
+  <a href="/instruments" class="btn btn-info" role="button"><span class="glyphicon glyphicon-arrow-left"></span> Go Back</a>
+
 </div>
