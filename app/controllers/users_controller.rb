@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     end
   end
 
+# not sure if I need this or not
   get '/users/:slug' do
     @user = User.find_by_slug(params[:slug])
     erb :'/users/show'
@@ -50,7 +51,7 @@ class UsersController < ApplicationController
   get '/logout' do
     if logged_in?
       session.clear
-      flash[:message] = "You successfully logged out."
+      flash[:message] = "You have successfully logged out."
       redirect '/login'
     else
       redirect '/'
