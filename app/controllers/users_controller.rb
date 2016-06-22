@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     if user.username != "" && user.email != ""
       user.save
       session[:user_id] = user.id
-      flash[:message] = "You successfully created a user!"
+      flash[:message] = "You have successfully created a user!"
       redirect to "/instruments"
     else
       redirect to '/signup'
