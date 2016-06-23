@@ -53,7 +53,7 @@ class InstrumentsController < ApplicationController
   patch '/instruments/:id' do
     instrument = Instrument.find(params[:id])
     if params[:description] && params[:name]!= ""
-      instrument.description = params[:content]
+      instrument.description = params[:description]
       instrument.name = params[:name]
       instrument.save
       flash[:message] = "You successfully edited an instrument!"
