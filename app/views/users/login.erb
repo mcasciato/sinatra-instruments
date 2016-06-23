@@ -1,7 +1,6 @@
-<div class="container">
-  <% if flash[:message] != nil %>
-    <h2><small> <%= flash[:message] %> </small></h2>
-  <%end%>
+<% if flash[:message] != nil %>
+  <h2><small> <%= flash[:message] %> </small></h2>
+<%end%>
 
   <h2>Log in below:</h2><br>
   <form role="textbox" action="/login" method="POST">
@@ -32,4 +31,3 @@
 
   <h3>Don't have an account?</h3>
     <a href="/signup" class="btn btn-info" role="button"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
-</div>

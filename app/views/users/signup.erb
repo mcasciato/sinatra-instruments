@@ -1,8 +1,6 @@
-<div class="container">
-
-  <% if flash[:message] != nil %>
+<% if flash[:message] != nil %>
   <h2><small> <%= flash[:message] %> </small></h2>
-  <%end%>
+<%end%>
 
   <h2>Sign up below:</h2><br>
 
@@ -44,4 +42,3 @@
    </div>
   <h3>Already have an account?</h3>
       <a href="/login" class="btn btn-info" role="button"><span class="glyphicon glyphicon-log-in"></span> Log In</a>
-</div>

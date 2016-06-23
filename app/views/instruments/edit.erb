@@ -1,5 +1,4 @@
-<div class="container">
-  <h1>Edit "<%= @instrument.name %>"</h1>
+<h1>Edit "<%= @instrument.name %>"</h1>
 
   <form role="textbox" action="/instruments/<%= @instrument.id %>" method="post">
     <input id="hidden" type="hidden" name="_method" value="patch">
@@ -20,5 +19,3 @@
 
   <h3>Change your mind? Go back to your list of instruments.</h3>
   <a href="/instruments" class="btn btn-info" role="button"><span class="glyphicon glyphicon-arrow-left"></span> Go Back</a>
-
-</div>
