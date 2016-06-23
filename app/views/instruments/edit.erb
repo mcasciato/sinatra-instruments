@@ -4,17 +4,22 @@
     <input id="hidden" type="hidden" name="_method" value="patch">
 
     <div class="prompt">
-       <input type="text" name="name" id="name" class="form-control input-lg" placeholder="Instrument Name">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <span class="glyphicon glyphicon-music"></span>
+        </div>
+        <input type="text" name="name" id="name" class="form-control input-lg" placeholder="Instrument Name">
+      </div>
     </div>
      <br>
      <div class="prompt">
-        <textarea name="description" id="description" class="form-control input-lg" placeholder="Instrument Description"></textarea>
+       <div class="input-group">
+         <div class="input-group-addon">
+           <span class="glyphicon glyphicon-list"></span>
+         </div>
+         <textarea name="description" id="description" class="form-control input-lg" placeholder="Instrument Description"></textarea>
+       </div>
      </div>
-     <br>
-    <div class="prompt">
-      <button type="submit" class="btn btn-primary">Edit Instrument</button>
-      <br>
-    </div>
   </form>
 
   <h3>Change your mind? Go back to your list of instruments.</h3>
