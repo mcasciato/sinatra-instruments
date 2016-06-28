@@ -23,6 +23,6 @@ A Sinatra app for keeping track of a user's instrument collection.
 1. `shotgun`
 1. Navigate your browser to `localhost:9393`
 
-##Demo
+##Video Walkthrough
 ---
-(Insert YouTube link here)
+https://goo.gl/hMt2jp
