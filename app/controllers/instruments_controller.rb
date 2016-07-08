@@ -2,7 +2,7 @@ class InstrumentsController < ApplicationController
 
   get '/instruments' do
     if logged_in?
-      @instruments = current_user.instruments.all
+      @instruments = current_user.instruments
       erb :'/instruments/instruments'
     else
       flash[:message] = "** You must be logged in to view instruments. **"
@@ -11,13 +11,13 @@ class InstrumentsController < ApplicationController
   end
 
   post '/instruments' do
-      if params[:name] != ""
-        instrument = Instrument.create(name: params[:name], description: params[:description], user_id: session[:user_id])
-        instrument.save
+      instrument = current_user.instruments.build(name: params[:name], description: params[:description])
+      if instrument.save
         flash[:message] = "You successfully created an instrument!"
         redirect '/instruments'
       else
-        redirect '/instruments/new'
+        flash[:message] = "You need to name your instrument!"
+        redirect '/new'
       end
   end
 

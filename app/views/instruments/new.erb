@@ -1,3 +1,7 @@
+<% if flash[:message] != nil %>
+  <h2><small> <%= flash[:message] %> </small></h2>
+<%end%>
+
 <h1>Add an Instrument to Your Collection!</h1>
 
   <form role="textbox" action="/instruments" method="POST">
