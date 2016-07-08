@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   post '/signup' do
     if params[:password] == ""
       flash[:message] = "**You must create a password.**"
-      redirect '/signup'
+      erb :'/users/signup'
     end
     user = User.new(params)
     if user.username != "" && user.email != ""
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
       flash[:message] = "You have successfully created a user!"
       redirect to "/instruments"
     else
-      redirect to '/signup'
+      erb :'/users/signup'
     end
   end
 
