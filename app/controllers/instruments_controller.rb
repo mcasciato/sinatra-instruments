@@ -51,7 +51,7 @@ class InstrumentsController < ApplicationController
   end
 
   patch '/instruments/:id' do
-    instrument = Instrument.find(params[:id])
+    instrument = Instrument.find_by_id(params[:id])
     if params[:description] && params[:name]!= ""
       instrument.description = params[:description]
       instrument.name = params[:name]
